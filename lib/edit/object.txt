@@ -155,11 +155,11 @@ N:10:& Ration~ of Food
 G:,:U
 I:80:1
 W:0:0:8:3
-A:40:0 to 50
+A:100:0 to 50
 M:100:1d5
 F:EASY_KNOW
 E:FOOD_GOOD
-L:6000
+L:5000
 D:This nutritious but fairly bland food is familiar to anyone contemplating
 D: long journeys.
 
@@ -171,7 +171,7 @@ A:40:5 to 60
 M:100:2d3
 F:EASY_KNOW
 E:FOOD_GOOD
-L:2500
+L:2000
 D:A strange fungal growth, prone to moving if not observed.  Not very tasty
 D: but quite filling.
 
@@ -179,7 +179,7 @@ N:12:& Piece~ of Elvish Waybread
 G:,:B
 I:80:3
 W:5:0:3:10
-A:40:30 to 100
+A:60:30 to 100
 M:10:1d3
 F:EASY_KNOW
 E:FOOD_WAYBREAD

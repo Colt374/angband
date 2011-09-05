@@ -972,7 +972,7 @@ bool effect_do(effect_type effect, bool *ident, bool aware, int dir, int beam,
 
 		case EF_SATISFY:
 		{
-			if (player_set_food(p_ptr, PY_FOOD_MAX - 1)) *ident = TRUE;
+			if (player_set_food(p_ptr, PY_FOOD_MAX)) *ident = TRUE;
 			return TRUE;
 		}
 

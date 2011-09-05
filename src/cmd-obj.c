@@ -556,6 +556,9 @@ void do_cmd_use(cmd_code code, cmd_arg args[])
 	}
 	else if (obj_is_food(o_ptr))
 	{
+		if (!player_can_eat())
+			return;
+
 		use = USE_SINGLE;
 		snd = MSG_EAT;
 		items_allowed = USE_INVEN | USE_FLOOR;

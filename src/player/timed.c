@@ -645,80 +645,31 @@ bool player_set_food(struct player *p, int v)
 	bool notice = FALSE;
 
 	/* Hack -- Force good values */
-	v = MIN(v, PY_FOOD_UPPER);
+	v = MIN(v, PY_FOOD_MAX);
 	v = MAX(v, 0);
 
-	/* Fainting / Starving */
 	if (p->food < PY_FOOD_FAINT)
-	{
 		old_aux = 0;
-	}
-
-	/* Weak */
 	else if (p->food < PY_FOOD_WEAK)
-	{
 		old_aux = 1;
-	}
-
-	/* Hungry */
 	else if (p->food < PY_FOOD_ALERT)
-	{
 		old_aux = 2;
-	}
-
-	/* Normal */
 	else if (p->food < PY_FOOD_FULL)
-	{
 		old_aux = 3;
-	}
-
-	/* Full */
-	else if (p->food < PY_FOOD_MAX)
-	{
+	else 
 		old_aux = 4;
-	}
-
-	/* Gorged */
-	else
-	{
-		old_aux = 5;
-	}
 
 	/* Fainting / Starving */
 	if (v < PY_FOOD_FAINT)
-	{
 		new_aux = 0;
-	}
-
-	/* Weak */
 	else if (v < PY_FOOD_WEAK)
-	{
 		new_aux = 1;
-	}
-
-	/* Hungry */
 	else if (v < PY_FOOD_ALERT)
-	{
 		new_aux = 2;
-	}
-
-	/* Normal */
 	else if (v < PY_FOOD_FULL)
-	{
 		new_aux = 3;
-	}
-
-	/* Full */
-	else if (v < PY_FOOD_MAX)
-	{
-		new_aux = 4;
-	}
-
-	/* Gorged */
 	else
-	{
-		new_aux = 5;
-	}
+		new_aux = 4;
 
 	/* Food increase */
 	if (new_aux > old_aux)
@@ -751,13 +702,6 @@ bool player_set_food(struct player *p, int v)
 			case 4:
 			{
 				msg("You are full!");
-				break;
-			}
-
-			/* Bloated */
-			case 5:
-			{
-				msg("You have gorged yourself!");
 				break;
 			}
 		}
@@ -797,13 +741,6 @@ bool player_set_food(struct player *p, int v)
 			case 3:
 			{
 				msgt(MSG_NOTICE, "You are no longer full.");
-				break;
-			}
-
-			/* Full */
-			case 4:
-			{
-				msgt(MSG_NOTICE, "You are no longer gorged.");
 				break;
 			}
 		}

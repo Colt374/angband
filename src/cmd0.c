@@ -65,7 +65,7 @@ static struct cmd_info cmd_item[] =
 	{ "Aim a wand", 'a', CMD_USE_WAND, NULL, NULL },
 	{ "Zap a rod", 'z', CMD_USE_ROD, NULL, NULL },
 	{ "Activate an object", 'A', CMD_ACTIVATE, NULL, NULL },
-	{ "Eat some food", 'E', CMD_EAT, NULL, NULL },
+	{ "Eat some food", 'E', CMD_EAT, NULL, player_can_eat },
 	{ "Quaff a potion", 'q', CMD_QUAFF, NULL, NULL },
 	{ "Read a scroll", 'r', CMD_READ_SCROLL, NULL, player_can_read },
 	{ "Fuel your light source", 'F', CMD_REFILL, NULL, NULL },

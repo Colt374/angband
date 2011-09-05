@@ -578,34 +578,23 @@ static void process_world(struct cave *c)
 
 	/*** Check the Food, and Regenerate ***/
 
-	/* Digest normally */
-	if (p_ptr->food < PY_FOOD_MAX)
+	/* Every 100 game turns */
+	if (!(turn % 100))
 	{
-		/* Every 100 game turns */
-		if (!(turn % 100))
-		{
-			/* Basic digestion rate based on speed */
-			i = extract_energy[p_ptr->state.speed] * 2;
+		/* Basic digestion rate based on speed */
+		i = extract_energy[p_ptr->state.speed] * 2;
 
-			/* Regeneration takes more food */
-			if (check_state(p_ptr, OF_REGEN, p_ptr->state.flags)) i += 30;
+		/* Regeneration takes more food */
+		if (check_state(p_ptr, OF_REGEN, p_ptr->state.flags)) i += 30;
 
-			/* Slow digestion takes less food */
-			if (check_state(p_ptr, OF_SLOW_DIGEST, p_ptr->state.flags)) i -= 10;
+		/* Slow digestion takes less food */
+		if (check_state(p_ptr, OF_SLOW_DIGEST, p_ptr->state.flags)) i -= 10;
 
-			/* Minimal digestion */
-			if (i < 1) i = 1;
+		/* Minimal digestion */
+		if (i < 1) i = 1;
 
-			/* Digest some food */
-			player_set_food(p_ptr, p_ptr->food - i);
-		}
-	}
-
-	/* Digest quickly when gorged */
-	else
-	{
-		/* Digest a lot of food */
-		player_set_food(p_ptr, p_ptr->food - 100);
+		/* Digest some food */
+		player_set_food(p_ptr, p_ptr->food - i);
 	}
 
 	/* Getting Faint */
@@ -1808,7 +1797,7 @@ void play_game(void)
 				(void)player_clear_timed(p_ptr, TMD_CUT, TRUE);
 
 				/* Hack -- Prevent starvation */
-				player_set_food(p_ptr, PY_FOOD_MAX - 1);
+				player_set_food(p_ptr, PY_FOOD_MAX);
 
 				/* Hack -- cancel recall */
 				if (p_ptr->word_recall)

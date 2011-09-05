@@ -592,7 +592,7 @@ static bool cast_mage_spell(int spell, int dir)
 
 		case SPELL_SATISFY_HUNGER:
 		{
-			player_set_food(p_ptr, PY_FOOD_MAX - 1);
+			player_set_food(p_ptr, PY_FOOD_MAX);
 			break;
 		}
 
@@ -980,7 +980,7 @@ static bool cast_priest_spell(int spell, int dir)
 
 		case PRAYER_SATISFY_HUNGER:
 		{
-			player_set_food(p_ptr, PY_FOOD_MAX - 1);
+			player_set_food(p_ptr, PY_FOOD_MAX);
 			break;
 		}
 

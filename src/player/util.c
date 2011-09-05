@@ -139,6 +139,16 @@ bool player_can_fire(void)
 	return TRUE;
 }
 
+/** Determine whether the player can eat */
+bool player_can_eat(void)
+{
+	if (p_ptr->food < PY_FOOD_FULL)
+		return TRUE;
+
+	msg("Eating now would make you too full.");
+	return FALSE;
+}
+
 /*
  * Apply confusion, if needed, to a direction
  *

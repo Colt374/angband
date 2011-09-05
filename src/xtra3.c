@@ -651,12 +651,11 @@ static const struct state_info stun_data[] =
 /* p_ptr->hunger descriptions */
 static const struct state_info hunger_data[] =
 {
-	{ PY_FOOD_FAINT, S("Faint"),    TERM_RED },
-	{ PY_FOOD_WEAK,  S("Weak"),     TERM_ORANGE },
-	{ PY_FOOD_ALERT, S("Hungry"),   TERM_YELLOW },
-	{ PY_FOOD_FULL,  S(""),         TERM_L_GREEN },
-	{ PY_FOOD_MAX,   S("Full"),     TERM_L_GREEN },
-	{ PY_FOOD_UPPER, S("Gorged"),   TERM_GREEN },
+	{ PY_FOOD_FULL,   S("Full"),     TERM_L_GREEN },
+	{ PY_FOOD_ALERT,  S(""),         TERM_L_GREEN },
+	{ PY_FOOD_WEAK,   S("Hungry"),   TERM_YELLOW },
+	{ PY_FOOD_FAINT,  S("Weak"),     TERM_ORANGE },
+	{ 0,              S("Faint"),    TERM_RED },
 };
 
 /* For the various TMD_* effects */
@@ -752,7 +751,7 @@ static size_t prt_stun(int row, int col)
  */
 static size_t prt_hunger(int row, int col)
 {
-	PRINT_STATE(<, hunger_data, p_ptr->food, row, col);
+	PRINT_STATE(>=, hunger_data, p_ptr->food, row, col);
 	return 0;
 }
 
