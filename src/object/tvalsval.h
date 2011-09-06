@@ -321,9 +321,11 @@ enum sval_ring /* tval 45 */
 
 enum sval_food /* tval 80 */
 {
+	SV_FOOD_BISCUIT = 0,
 	SV_FOOD_RATION = 1,
 	SV_FOOD_SLIME_MOLD = 2,
-	SV_FOOD_WAYBREAD = 3
+	SV_FOOD_WAYBREAD = 3,
+	SV_FOOD_WHISKY = 4
 };
 
 enum sval_gold /* tval 100 */

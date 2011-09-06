@@ -154,7 +154,7 @@ D: damage (which occurs even against creatures resistant to fire).
 N:10:& Ration~ of Food
 G:,:U
 I:80:1
-W:0:0:8:3
+W:0:0:8:2
 A:100:0 to 50
 M:100:1d5
 F:EASY_KNOW
@@ -166,7 +166,7 @@ D: long journeys.
 N:11:& Slime Mold~
 G:,:g
 I:80:2
-W:1:0:2:2
+W:1:0:2:1
 A:40:5 to 60
 M:100:2d3
 F:EASY_KNOW
@@ -178,7 +178,7 @@ D: but quite filling.
 N:12:& Piece~ of Elvish Waybread
 G:,:B
 I:80:3
-W:5:0:3:10
+W:5:0:3:100
 A:60:30 to 100
 M:10:1d3
 F:EASY_KNOW
@@ -187,8 +187,27 @@ L:7500
 D:Food of the elves is always good; their waybread is no exception.  These
 D: thin cakes are wrapped in leaves and keep their tastiness for months.
 
-# 13
-# 14
+N:13:& small Flask~ of Whisky
+G:!:r
+I:80:4
+W:1:0:6:60
+A:40:1 to 100
+M:25:2
+F:EASY_KNOW
+E:CURE_PARANOIA
+L:1000
+D:Whisky raises your spirits.
+
+N:14:& Herb Biscuit~
+G:,:G
+I:80:0
+W:1:0:1:30
+A:40:1 to 35
+M:25:2
+F:EASY_KNOW
+E:CURE_POISON
+L:500
+
 # 15
 
 ### The shrooms, an interesting collection ###
